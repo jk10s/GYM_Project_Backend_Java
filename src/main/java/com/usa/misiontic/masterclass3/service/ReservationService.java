@@ -43,13 +43,13 @@ public class ReservationService {
                     q.get().setStatus(p.getStatus());
                 }
 
-                /*if(p.getClient()!=null){
+                if(p.getClient()!=null){
                     q.get().setClient(p.getClient());
                 }
 
                 if(p.getMachine()!=null){
                     q.get().setMachine(p.getMachine());
-                } */
+                }
 
 
                 reservationRepository.save(q.get());

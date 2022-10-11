@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "message")
 public class Message implements Serializable {
 
     @Id
@@ -15,16 +15,17 @@ public class Message implements Serializable {
     private Integer idMessage;
     private String messageText;
 
-
-    /*@ManyToOne
-    @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("client")
-    private Client client;
-
     @ManyToOne
     @JoinColumn(name = "machineId")
-    @JsonIgnoreProperties("machine")
-    private Machine machine; */
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Machine machine;
+
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Client client;
+
+
 
     public Integer getIdMessage() {
         return idMessage;
@@ -42,7 +43,7 @@ public class Message implements Serializable {
         this.messageText = messageText;
     }
 
-    /*
+
     public Machine getMachine() {
         return machine;
     }
@@ -57,6 +58,6 @@ public class Message implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
- */
+
 
 }

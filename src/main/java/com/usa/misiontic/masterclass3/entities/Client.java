@@ -17,11 +17,11 @@ public class Client implements Serializable {
     private String password;
     private String name;
     private Integer age;
-
-
-
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("machine")
+    @JsonIgnoreProperties("client")
+    private List<Message> messages;
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @JsonIgnoreProperties("client")
     private List<Reservation> reservations;
 
 
@@ -73,5 +73,13 @@ public class Client implements Serializable {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }
