@@ -17,14 +17,15 @@ public class Reservation implements Serializable {
     private Date startDate;
     private String status="created";
 
+
     @ManyToOne
     @JoinColumn(name = "machineId")
-    @JsonIgnoreProperties("machine")
+    @JsonIgnoreProperties("reservations")
     private Machine machine;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
     public Integer getIdReservation() {
@@ -51,6 +52,7 @@ public class Reservation implements Serializable {
         this.status = status;
     }
 
+
     public Machine getMachine() {
         return machine;
     }
@@ -66,4 +68,7 @@ public class Reservation implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
+
+
+
 }

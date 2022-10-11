@@ -42,7 +42,7 @@ public class ReservationService {
                 if(p.getStatus()!=null){
                     q.get().setStatus(p.getStatus());
                 }
-
+                /*
                 if(p.getClient()!=null){
                     q.get().setClient(p.getClient());
                 }
@@ -50,7 +50,7 @@ public class ReservationService {
                 if(p.getMachine()!=null){
                     q.get().setMachine(p.getMachine());
                 }
-
+                */
 
                 reservationRepository.save(q.get());
                 return q.get();
