@@ -20,8 +20,6 @@ public class Library implements Serializable {
     @JsonIgnoreProperties("libs")
     private Category category;
 
-
-
     public Integer getId() {
         return id;
     }
